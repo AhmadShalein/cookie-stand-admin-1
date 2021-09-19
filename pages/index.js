@@ -3,9 +3,9 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Main from '../components/Main'
 // import Footer from '../components/Footer'
-
+import { useAuth } from '../contexts/auth'
 export default function CookieStandAdmin() {
-
+  const { user, login, logout } = useAuth();
   return (
     <div className="bg-green-50">
       
@@ -16,7 +16,9 @@ export default function CookieStandAdmin() {
 
       <Header />
 
-      <Main />
+      {user? <Main /> : <LoginForm/> }
+
+      {/* <Main /> */}
 
       {/* <Footer/> */}
 
